@@ -2,8 +2,13 @@
 body
 {
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
 .bw-container
 {
     max-width: 1600px !important;
+}
+html
+{
+    scroll-behavior: smooth;
 }
