@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
-import { Button, Col, Container, Image, Nav, Navbar, Row, NavLink } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Button, Col, Container, Image, Nav, Navbar, Row } from 'react-bootstrap'
 import logo from '../../../Assets/Images/logo.png'
 import '../../../Assets/Css/Header.css'
 import styled from "styled-components";
 import Helmet from 'react-helmet'
 import { isDesktop } from 'react-device-detect';
+import { NavLink } from 'react-router-dom';
 
 const COLORS = {
     primaryDark: "#447119",
@@ -17,6 +18,10 @@ const MenuLabel = styled.label`
   top: -10px;
   right: 175px;
   cursor: pointer;
+  @media (min-width: 1150px) and (max-width: 1300px) {
+    top: -16px;
+    right: 20px;
+  }
   @media (max-width: 768px) {
     right: 20px !important;
     top: -20px !important;
@@ -105,11 +110,15 @@ const ItemLink = styled(NavLink)`
     line-height: 80px !important;
     color: #fff !important;
 `;
-
-
 const Header = () => {
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
+    const [scroll, setScroll] = useState(false);
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            setScroll(window.scrollY > 200);
+        });
+    }, [])
     return (
         <div className='bw-header-main'>
             <Helmet>
@@ -125,8 +134,8 @@ const Header = () => {
                 <Container className='bw-container'>
                     <Row>
                         <Col lg={12}>
-                            {isDesktop ? (<Navbar expand="lg">
-                                <Container fluid>
+                            {isDesktop ? (<Navbar expand="lg" className={scroll ? "fixed-head" : "normal-head"}>
+                                <Container fluid className='p-0'>
                                     <Navbar.Brand to="/">
                                         <Image src={logo} className="logo" />
                                     </Navbar.Brand>
@@ -136,15 +145,15 @@ const Header = () => {
                                             navbarScroll
                                             className='align-items-center'
                                         >
-                                            <Nav.Link to="/">Plans and Pricing</Nav.Link>
-                                            <Nav.Link to="/">Blogs</Nav.Link>
-                                            <Nav.Link to="/">Careers</Nav.Link>
-                                            <Nav.Link to="/"><Button className='bw-header-btn'>Book An Appointment</Button></Nav.Link>
-                                            <Nav.Link to="/"><MenuLabel htmlFor="navi-toggle" onClick={handleClick}>
+                                            <NavLink to="/a">Plans and Pricing</NavLink>
+                                            <NavLink to="/">Blogs</NavLink>
+                                            <NavLink to="/">Careers</NavLink>
+                                            <NavLink to="/"><Button className='bw-header-btn'>Book An Appointment</Button></NavLink>
+                                            <NavLink to="/"><MenuLabel htmlFor="navi-toggle" onClick={handleClick}>
                                                 <Icon clicked={click}>&nbsp;</Icon>
                                             </MenuLabel>
                                                 <NavBackground clicked={click}>&nbsp;</NavBackground>
-                                            </Nav.Link>
+                                            </NavLink>
                                             <Navigation clicked={click}>
                                                 <Container>
                                                     <Row className='align-items-center'>
@@ -196,7 +205,7 @@ const Header = () => {
                                         </Nav>
                                     </Navbar.Collapse>
                                 </Container>
-                            </Navbar>) : (<div className='d-flex mt-3'>
+                            </Navbar>) : (<div className={scroll ? "d-flex fixed-head" : "d-flex mt-3 normal-head"}>
                                 <Image src={logo} className="logo" /> <MenuLabel htmlFor="navi-toggle" onClick={handleClick}>
                                     <Icon clicked={click}>&nbsp;</Icon>
                                 </MenuLabel>

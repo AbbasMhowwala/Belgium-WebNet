@@ -58,7 +58,7 @@ const Footer = () => {
                 <li><Link className='text-white text-decoration-none' to='/'> <InstagramIcon /></Link></li>
                 <li><Link className='text-white text-decoration-none' to='/'> <YouTubeIcon /></Link></li>
               </ul>
-              <h3 className='mt-5 pt-5 fw-bold'> info@belgiumwebnet.com</h3>
+              <h3 className='mt-5 pt-5 fw-bold email_text'> info@belgiumwebnet.com</h3>
               <Image src={bw} className='bw-footer-logo' />
             </div>
           </Col>

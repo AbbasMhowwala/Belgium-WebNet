@@ -9,7 +9,6 @@ section.bw-hero {
 }
 
 .bw-mockup {
-    width: 100%;
     float: right;
 }
 
@@ -80,8 +79,8 @@ section.bw-hero::after {
 
 .mouse::before {
     content: "";
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     position: absolute;
     top: 10px;
     left: 50%;
@@ -148,6 +147,7 @@ small.subheading {
     background-color: #000;
     color: #fff;
     border-color: #000;
+    box-shadow: none !important;
 }
 
 .branding-box {
@@ -281,6 +281,52 @@ img.services-image {
     line-height: 76px;
 }
 
+section.agency-section {
+    background: #F5FFEC;
+    padding: 150px 0;
+}
+
+.agency-sec h1 {
+    font-weight: 700;
+    font-size: 100px;
+    line-height: 120px;
+    text-align: center;
+    color: #54555B;
+    text-transform: uppercase;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 1px 1px #0000001a;
+}
+
+.pulse {
+    animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+    0% {
+        box-shadow: 0 0 0 0px rgba(255, 255, 255, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+    }
+}
+
+img.arrow-bg {
+    background: #2AC1B7;
+    box-shadow: 0px 4px 24px rgba(25, 167, 86, 0.25);
+    padding: 40px;
+    border-radius: 50px;
+}
+
+.play-vid
+{
+    cursor: pointer;
+}
 .review-section {
     padding: 100px 0;
 }
@@ -367,7 +413,7 @@ img.img-fluid.google-img {
 }
 
 .blogs-section {
-    margin: 100px 0;
+    padding: 100px 0;
 }
 
 .blogs {
@@ -410,7 +456,7 @@ section.blogs-section .m-auto.border-bottom.pb-5.col-lg-8 {
     position: relative;
 }
 
-.insta-section::before {
+/* .insta-section::before {
     content: '';
     background-image: url(../Images/insta-before.png);
     background-size: cover;
@@ -419,7 +465,7 @@ section.blogs-section .m-auto.border-bottom.pb-5.col-lg-8 {
     position: absolute;
     z-index: -1;
     top: 30px;
-}
+} */
 
 .newsletter-section {
     padding: 100px 0;
@@ -494,6 +540,12 @@ form.newsletter-form button.btn.btn-primary::before {
 }
 
 @media (min-width: 1150px) and (max-width: 1300px) {
+    .email_text {
+        font-size: 21px;
+    }
+    .vide-section .slick-prev, .slick-next, .review-section .slick-prev, .slick-next, .project-heading::before {
+        display: none !important;
+    }
     .big-font {
         font-size: 55px;
         line-height: 60px;
@@ -502,15 +554,55 @@ form.newsletter-form button.btn.btn-primary::before {
     .video-section {
         height: 650px;
     }
-}
-
-@media (min-width: 320px) and (max-width: 767px) {
-
+    .bw-mockup
+    {
+        width: 100%;
+    }
+    .branding-box {
+        padding: 30px 20px;
+    }
+    .medium-font {
+        font-size: 40px;
+        line-height: 46px;
+    }
+    .review-block p {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 25px;
+    }
     .services-section,
     .brands-section,
     .projects-section,
     .review-section,
-    .insta-section .blogs-section,
+    .insta-section,
+    .blogs-section,
+    .newsletter-section {
+        padding: 50px 0;
+    }
+    h1.blog-heading {
+        font-size: 16px;
+        line-height: 26px;
+    }
+    small.subheading {
+        font-size: 17px;
+        line-height: 30px;
+    }
+    form.newsletter-form {
+        padding: 0px 50px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .bw-mockup {
+        float: right;
+        width: 100%;
+    }
+    .services-section,
+    .brands-section,
+    .projects-section,
+    .review-section,
+    .insta-section,
+    .blogs-section,
     .newsletter-section {
         padding: 50px 0;
     }
