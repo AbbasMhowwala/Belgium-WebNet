@@ -42,9 +42,11 @@ import StarIcon from '@mui/icons-material/Star';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Link } from 'react-router-dom'
+import Tilt from 'react-parallax-tilt';
+
 const Home = () => {
     const myRef = useRef(null);
-    const executeScroll = () => myRef.current.scrollIntoView(); 
+    const executeScroll = () => myRef.current.scrollIntoView();
     const [lgShow, setLgShow] = useState(false);
     const [insta, setInsta] = useState(false)
     const projects = {
@@ -65,7 +67,7 @@ const Home = () => {
                 }
             },
             {
-                breakpoint: 480,
+                breakpoint: 599,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1
@@ -119,7 +121,7 @@ const Home = () => {
                 }
             },
             {
-                breakpoint: 480,
+                breakpoint: 600,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1
@@ -317,9 +319,6 @@ const Home = () => {
                                     <div className='brand-logo'>
                                         <Image src={brand3} className='brand' />
                                     </div>
-                                    <div className='brand-logo'>
-                                        <Image src={brand4} className='brand' />
-                                    </div>
                                 </Slider>
                             </div>
                         </Col>
@@ -342,33 +341,35 @@ const Home = () => {
                     </Row>
                 </Container>
             </section>
-            {/* <section className='agency-section'>
+            <section className='agency-section'>
                 <Container fluid>
                     <Row className='align-items-center'>
                         <Col lg={12}>
                             <div className='agency-sec' data-aos="fade-up">
                                 <h1>We Are
-                                    <Image src={avtar} className='Avtar' />
-                                    <b className='text-decoration-underline text-dark'>Branding</b>
-                                    <br /> Agency
-                                    <span className='arrowbg'><Image src={arrow} className='arrow-bg' /> </span>and
-                                    <Image src={avtar3} className='Avtar' />
-                                    <br /> design
-                                    <Image src={avtar2} className='Avtar' /> studio
-                                    <span className='arrowbg'><Image src={arrow} className='arrow-bg' /></span>
+                                    <Tilt className='d-inline-block'><Image src={avtar} className='Avtar me-3' /></Tilt>
+                                    <span className='text-decoration-underline text-dark'>Branding</span>
+                                    <br /> <span className='text-dark'>Agency</span>
+                                    <span className='arrowbg'> <Tilt className='d-inline-block'><Image src={arrow} className='arrow-bg' /></Tilt> </span>and
+                                    <Tilt className='d-inline-block'><Image src={avtar3} className='Avtar ms-3' /></Tilt>
+                                    <br /> <span className='text-dark'> design </span>
+                                    <Tilt className='d-inline-block'><Image src={avtar2} className='Avtar me-3' /></Tilt> <span className='text-dark'>studio</span>
+                                    <span className='arrowbg'> <Tilt className='d-inline-block'><Image src={arrow} className='arrow-bg ms-3' /></Tilt></span>
                                 </h1>
                             </div>
                         </Col>
                     </Row>
                 </Container>
-            </section> */}
+            </section>
             <section className='projects-section'>
                 <Container fluid>
                     <Row className='align-items-center'>
-                        <Col lg={4}  data-aos="fade-right">
-                            <h1 className='main-heading medium-font mb-3'> Recent <br />Projects</h1>
-                            <p className='mt-3 pt-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam vivamus pretium maecenas amet, pellentesque sollicitudin.</p>
-                            <Button className='theme-btn text-decoration-none'>Let's Work</Button>
+                        <Col lg={4} data-aos="fade-right">
+                            <div className="project-block">
+                                <h1 className='main-heading medium-font mb-3'> Recent <br />Projects</h1>
+                                <p className='mt-3 pt-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam vivamus pretium maecenas amet, pellentesque sollicitudin.</p>
+                                <Button className='theme-btn text-decoration-none'>Let's Work</Button>
+                            </div>
                         </Col>
                         <Col lg={8}>
                             <div className='vide-section text-center' data-aos="fade-left">
@@ -566,9 +567,9 @@ const Home = () => {
             <section className='insta-section'>
                 <Container fluid>
                     <Row className='align-items-center'>
-                    <Col lg={1} sm={1} data-aos="fade-right">
-                        <Image src={instab} className='instbefore desktop-view text-left' />
-                    </Col>
+                        <Col lg={1} sm={0} data-aos="fade-right">
+                            <Image src={instab} className='instbefore desktop-view text-left' />
+                        </Col>
                         <Col lg={3} sm={6} data-aos="fade-right">
                             <div className='insta-about'>
                                 <Image src={instalogo} className='img-fluid logo-insta' />
@@ -590,7 +591,7 @@ const Home = () => {
             </section>
             <section className='newsletter-section'>
                 <Container>
-                    <Row className='newsletter-box align-items-center' data-aos="fade-up">
+                    <Row className='newsletter-box align-items-center'>
                         <Col className='desktop-view' lg={2}>
                             <Image src={nleft} className='newsletter-left' />
                         </Col>

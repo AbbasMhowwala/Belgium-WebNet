@@ -12,11 +12,8 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
 
 .navbar-nav.navbar-nav-scroll a {
     text-decoration: none;
-    font-size: 17px;
-    line-height: 26px;
     color: #fff !important;
     padding: 10px 25px !important;
-    font-weight: 400;
 }
 
 .bw-header-btn {
@@ -124,23 +121,17 @@ ul.social-media li a svg {
 }
 
 nav.fixed-head.navbar.navbar-expand-lg.navbar-light {
-    background: #415f2c;
+    background: #3b3b3c;
     position: fixed;
     width: 100%;
-    max-width: 1580px;
-    padding: 20px;
-    border-top-left-radius: 50px;
-    border-bottom-right-radius: 50px;
+    left: 0;
+    padding: 10px 60px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
-
-@media (min-width: 320px) and (max-width: 767px) {
-
-    .d-flex.fixed-head {
-        position: fixed;
-        width: 100%;
-        background: #437018;
-        padding: 20px 0;
-        left: 0;
-    }
+.fixed-head {
+    position: fixed;
+    background: #3b3b3c;
+    width: 100%;
+    padding: 15px;
+    left: 0;
 }

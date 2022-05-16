@@ -287,9 +287,9 @@ section.agency-section {
 }
 
 .agency-sec h1 {
-    font-weight: 700;
-    font-size: 100px;
-    line-height: 120px;
+    font-weight: 600;
+    font-size: 120px;
+    line-height: 160px;
     text-align: center;
     color: #54555B;
     text-transform: uppercase;
@@ -323,10 +323,10 @@ img.arrow-bg {
     border-radius: 50px;
 }
 
-.play-vid
-{
+.play-vid {
     cursor: pointer;
 }
+
 .review-section {
     padding: 100px 0;
 }
@@ -539,13 +539,44 @@ form.newsletter-form button.btn.btn-primary::before {
     display: block;
 }
 
+.project-block {
+    padding-left: 120px;
+}
+
 @media (min-width: 1150px) and (max-width: 1300px) {
+    .bw-hero-home {
+        padding: 0 50px;
+    }
+
+    .project-block {
+        padding-left: 0px;
+    }
+
+    section.bw-hero {
+        height: 650px;
+    }
+
+    h1.bw-hero-heading {
+        font-size: 35px;
+        line-height: 40px;
+    }
+
+    .bw-bold {
+        font-size: 40px;
+    }
+
     .email_text {
         font-size: 21px;
     }
-    .vide-section .slick-prev, .slick-next, .review-section .slick-prev, .slick-next, .project-heading::before {
+
+    .vide-section .slick-prev,
+    .slick-next,
+    .review-section .slick-prev,
+    .slick-next,
+    .project-heading::before {
         display: none !important;
     }
+
     .big-font {
         font-size: 55px;
         line-height: 60px;
@@ -554,22 +585,26 @@ form.newsletter-form button.btn.btn-primary::before {
     .video-section {
         height: 650px;
     }
-    .bw-mockup
-    {
+
+    .bw-mockup {
         width: 100%;
     }
+
     .branding-box {
         padding: 30px 20px;
     }
+
     .medium-font {
         font-size: 40px;
         line-height: 46px;
     }
+
     .review-block p {
         font-weight: 600;
         font-size: 15px;
         line-height: 25px;
     }
+
     .services-section,
     .brands-section,
     .projects-section,
@@ -579,24 +614,37 @@ form.newsletter-form button.btn.btn-primary::before {
     .newsletter-section {
         padding: 50px 0;
     }
+
     h1.blog-heading {
         font-size: 16px;
         line-height: 26px;
     }
+
     small.subheading {
         font-size: 17px;
         line-height: 30px;
     }
+
     form.newsletter-form {
         padding: 0px 50px;
     }
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
+    .project-block {
+        padding-left: 0px;
+    }
+
+    .agency-sec h1 {
+        font-size: 60px;
+        line-height: 130px;
+    }
+
     .bw-mockup {
         float: right;
         width: 100%;
     }
+
     .services-section,
     .brands-section,
     .projects-section,
@@ -721,6 +769,18 @@ form.newsletter-form button.btn.btn-primary::before {
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
+    .agency-sec h1 {
+        font-size: 60px;
+        line-height: 130px;
+    }
+    .bw-mockup {
+        float: right;
+        width: 100%;
+    }
+
+    .project-block {
+        padding-left: 0px;
+    }
 
     section.bw-hero {
         height: 800px;

@@ -13,15 +13,19 @@ const COLORS = {
 };
 const MenuLabel = styled.label`
     position: fixed;  
-    z-index: 1000;  
-  text-align: center;
-  top: -10px;
-  right: 175px;
-  cursor: pointer;
-  @media (min-width: 1150px) and (max-width: 1300px) {
-    top: -16px;
+    top: -15px;
+    cursor: pointer;
     right: 20px;
-  }
+    z-index: 1000; 
+//     z-index: 1000;  
+//   text-align: center;
+//   top: -10px;
+//   right: 175px;
+//   cursor: pointer;
+//   @media (min-width: 1150px) and (max-width: 1300px) {
+//     top: -6px;
+//     right: 20px;
+//   }
   @media (max-width: 768px) {
     right: 20px !important;
     top: -20px !important;
@@ -31,7 +35,7 @@ const MenuLabel = styled.label`
 const NavBackground = styled.div`
   position: fixed;
   top: 0;
-  right: 9.5rem;
+  right: 20pz;
   background-image: radial-gradient(
     ${COLORS.primaryDark},
     ${COLORS.primaryLight}
@@ -108,7 +112,6 @@ const ItemLink = styled(NavLink)`
   font-size: 3rem !important;
     font-weight: 800 !important;
     line-height: 80px !important;
-    color: #fff !important;
 `;
 const Header = () => {
     const [click, setClick] = useState(false);
