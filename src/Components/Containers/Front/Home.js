@@ -506,7 +506,7 @@ const Home = () => {
                     <Row className='mt-5'>
                         <Col lg={8} className="m-auto border-bottom pb-5">
                             <Row>
-                                <Col lg={6} data-aos="fade-right">
+                                <Col lg={8} data-aos="fade-right">
                                     <div className="blogs-single d-flex">
                                         <Image src={blog1} className='img-fluid blog-img' />
                                         <div className='ms-5'>
@@ -524,7 +524,7 @@ const Home = () => {
                         </Col>
                         <Col lg={8} className="m-auto border-bottom pt-5 pb-5">
                             <Row>
-                                <Col lg={6} data-aos="fade-right">
+                                <Col lg={8} data-aos="fade-right">
                                     <div className="blogs-single d-flex">
                                         <Image src={blog2} className='img-fluid blog-img' />
                                         <div className='ms-5'>
@@ -542,7 +542,7 @@ const Home = () => {
                         </Col>
                         <Col lg={8} className="m-auto border-bottom pt-5 pb-5">
                             <Row>
-                                <Col lg={6} data-aos="fade-right">
+                                <Col lg={8} data-aos="fade-right">
                                     <div className="blogs-single d-flex">
                                         <Image src={blog3} className='img-fluid blog-img' />
                                         <div className='ms-5'>
