@@ -128,10 +128,106 @@ nav.fixed-head.navbar.navbar-expand-lg.navbar-light {
     padding: 10px 60px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
+
 .fixed-head {
     position: fixed;
     background: #3b3b3c;
     width: 100%;
     padding: 15px;
     left: 0;
+}
+
+.full-screen-right {
+    background: #2B4E09;
+    height: 100vh;
+
+}
+
+.full-screen-left {
+    padding: 0 150px;
+}
+
+.full-content {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    color: #fff;
+    position: relative;
+}
+
+.full-content h3 {
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 45px;
+}
+
+.full-btn {
+    background: #3B6711;
+    border: 2px solid rgba(217, 255, 181, 0.25);
+    border-radius: 2px;
+    padding: 10px 25px;
+    font-size: 17px;
+}
+
+.full-btn:active,
+.full-btn:hover,
+.full-btn:focus {
+    background-color: #fff;
+    border-color: transparent;
+    box-shadow: none;
+    color: #3B6711;
+}
+
+.full-view-logo {
+    position: absolute;
+    bottom: 100px;
+}
+
+@media (min-width: 1150px) and (max-width: 1300px) {
+
+    .full-screen-left {
+        padding: 0px 50px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .full-screen-left {
+        padding: 30px;
+    }
+
+    .full-screen-left .col-6 {
+        margin-top: 20px;
+    }
+
+    .full-content {
+        height: auto;
+        display: block;
+        padding: 55px 25px;
+    }
+
+    .full-view-logo {
+        bottom: 120px;
+        right: 10px;
+    }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+    .full-screen-left {
+        padding: 30px;
+    }
+
+    .full-screen-left .col-6 {
+        margin-top: 20px;
+    }
+
+    .full-content {
+        height: auto;
+        display: block;
+        padding: 30px;
+    }
+
+    .full-view-logo {
+        bottom: 70px;
+        right: 10px;
+    }
 }

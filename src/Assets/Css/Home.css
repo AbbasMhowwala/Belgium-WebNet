@@ -230,6 +230,37 @@ img.services-image {
     text-align: left !important;
 }
 
+.brands-section .slick-next {
+    bottom: -80px;
+    position: absolute !important;
+    margin: 0px auto !important;
+    border-radius: 50% !important;
+    background: transparent;
+    color: #000 !important;
+    border: 2px solid #000 !important;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 11px !important;
+    right: 200px !important;
+}
+
+.brands-section .slick-prev {
+    bottom: -80px;
+    left: 45% !important;
+    position: absolute;
+    top: unset !important;
+    right: unset !important;
+    margin: 0px auto !important;
+    border-radius: 50%;
+    padding: 20px;
+    background: transparent;
+    color: #737373 !important;
+    border: 2px solid #737373 !important;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 11px !important;
+}
+
 .video-section {
     background-image: url(../Images/video.png);
     background-size: cover;
@@ -269,6 +300,39 @@ img.services-image {
     background: #e2e2e2;
     bottom: 47px;
     z-index: -1;
+}
+.projects-section .slick-next {
+    position: absolute !important;
+    margin: 0px auto !important;
+    border-radius: 50% !important;
+    background: transparent;
+    color: #000 !important;
+    border: 2px solid #000 !important;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 11px !important;
+    left: -35% !important;
+    bottom: 10% !important;
+}
+
+.projects-section .slick-prev {
+    bottom: 10%;
+    left: -40% !important;
+    position: absolute;
+    top: unset !important;
+    right: unset !important;
+    margin: 0px auto !important;
+    border-radius: 50%;
+    padding: 20px;
+    background: transparent;
+    color: #737373 !important;
+    border: 2px solid #737373 !important;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 11px !important;
+}
+img.about-arrow {
+    filter: brightness(0.2);
 }
 
 .medium-font {
@@ -773,6 +837,7 @@ form.newsletter-form button.btn.btn-primary::before {
         font-size: 60px;
         line-height: 130px;
     }
+
     .bw-mockup {
         float: right;
         width: 100%;

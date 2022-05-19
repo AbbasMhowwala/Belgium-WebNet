@@ -43,7 +43,6 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Link } from 'react-router-dom'
 import Tilt from 'react-parallax-tilt';
-
 const Home = () => {
     const myRef = useRef(null);
     const executeScroll = () => myRef.current.scrollIntoView();
@@ -51,12 +50,13 @@ const Home = () => {
     const [insta, setInsta] = useState(false)
     const projects = {
         className: "center",
-        infinite: false,
-        Nav: true,
+        infinite: false,        
         slidesToShow: 1.7,
         speed: 500,
         rows: 1,
         slidesPerRow: 1,
+        prevArrow: <ArrowBackIosNewIcon />,
+        nextArrow: <ArrowForwardIosIcon />,
         responsive: [
             {
                 breakpoint: 600,
@@ -78,7 +78,8 @@ const Home = () => {
     const settings = {
         className: "center",
         infinite: false,
-        Nav: true,
+        prevArrow: <ArrowBackIosNewIcon />,
+        nextArrow: <ArrowForwardIosIcon />,
         slidesToShow: 3,
         speed: 500,
         rows: 3,
@@ -356,6 +357,7 @@ const Home = () => {
                                     <Tilt className='d-inline-block'><Image src={avtar2} className='Avtar me-3' /></Tilt> <span className='text-dark'>studio</span>
                                     <span className='arrowbg'> <Tilt className='d-inline-block'><Image src={arrow} className='arrow-bg ms-3' /></Tilt></span>
                                 </h1>
+                                <Button className='theme-btn text-decoration-none m-auto d-flex align-items-center mt-5'>About Us <Image src={arrow} className='about-arrow ms-3' /></Button>
                             </div>
                         </Col>
                     </Row>
