@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Col, Container, Image, Nav, Navbar, Row } from 'react-bootstrap'
+import { Button, Col, Container, Image, Modal, Nav, Navbar, Row } from 'react-bootstrap'
 import logo from '../../../Assets/Images/logo.png'
 import '../../../Assets/Css/Header.css'
 import styled from "styled-components";
@@ -7,6 +7,8 @@ import Helmet from 'react-helmet'
 import { isDesktop } from 'react-device-detect';
 import { NavLink } from 'react-router-dom';
 import bw from '../../../Assets/Images/bw.png'
+import hamburger from '../../../Assets/Images/hamburger.png'
+import { TextField } from '@mui/material';
 
 const COLORS = {
     primaryDark: "#36620A",
@@ -142,6 +144,9 @@ const SlimLink = styled(NavLink)`
     }
 `;
 const Header = () => {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
     const [scroll, setScroll] = useState(false);
@@ -150,6 +155,13 @@ const Header = () => {
             setScroll(window.scrollY > 200);
         });
     }, [])
+    const openNav = () => {
+        document.getElementById("myNav").style.height = "100%";
+    }
+    const closeNav = () => {
+        document.getElementById("myNav").style.height = "0%";
+
+    }
     return (
         <div className='bw-header-main'>
             <Helmet>
@@ -179,243 +191,271 @@ const Header = () => {
                                             <NavLink to="/a">Plans and Pricing</NavLink>
                                             <NavLink to="/">Blogs</NavLink>
                                             <NavLink to="/">Careers</NavLink>
-                                            <NavLink to="/"><Button className='bw-header-btn'>Book An Appointment</Button></NavLink>
-                                            <NavLink to="/"><MenuLabel htmlFor="navi-toggle" onClick={handleClick}>
-                                                <Icon clicked={click}>&nbsp;</Icon>
-                                            </MenuLabel>
-                                                <NavBackground clicked={click}>&nbsp;</NavBackground>
-                                            </NavLink>
-                                            <Navigation clicked={click}>
-                                                <Container fluid className='p-0'>
-                                                    <Row className='align-items-center'>
-                                                        <Col lg={7} className='full-screen-left'>
-                                                            <Row className='align-items-center'>
-                                                                <Col lg={4}>
-                                                                    <List>
-                                                                        <li>
-                                                                            <ItemLink onClick={handleClick} to="/">
-                                                                                About
-                                                                            </ItemLink>
-                                                                        </li>
-                                                                        <li>
-                                                                            <ItemLink onClick={handleClick} to="/">
-                                                                                Work
-                                                                            </ItemLink>
-                                                                        </li>
-                                                                        <li>
-                                                                            <ItemLink onClick={handleClick} to="/">
-                                                                                Services
-                                                                            </ItemLink>
-                                                                        </li>
-                                                                        <li>
-                                                                            <ItemLink onClick={handleClick} to="/">
-                                                                                Culture
-                                                                            </ItemLink>
-                                                                        </li>
-                                                                        <li>
-                                                                            <ItemLink onClick={handleClick} to="/">
-                                                                                Careers
-                                                                            </ItemLink>
-                                                                        </li>
-                                                                    </List>
-                                                                </Col>
-                                                                <Col lg={4}>
-                                                                    <List>
-                                                                        <li>
-                                                                            <SlimLink onClick={handleClick} to="/">
-                                                                                About
-                                                                            </SlimLink>
-                                                                        </li>
-                                                                        <li>
-                                                                            <SlimLink onClick={handleClick} to="/">
-                                                                                Work
-                                                                            </SlimLink>
-                                                                        </li>
-                                                                        <li>
-                                                                            <SlimLink onClick={handleClick} to="/">
-                                                                                Services
-                                                                            </SlimLink>
-                                                                        </li>
-                                                                        <li>
-                                                                            <SlimLink onClick={handleClick} to="/">
-                                                                                Culture
-                                                                            </SlimLink>
-                                                                        </li>
-                                                                        <li>
-                                                                            <SlimLink onClick={handleClick} to="/">
-                                                                                Careers
-                                                                            </SlimLink>
-                                                                        </li>
-                                                                        <li>
-                                                                            <SlimLink onClick={handleClick} to="/">
-                                                                                Contact Us
-                                                                            </SlimLink>
-                                                                        </li>
-                                                                    </List>
-                                                                </Col>
-                                                                <Col lg={4}>
-                                                                    <List>
-                                                                        <li>
-                                                                            <SlimLink onClick={handleClick} to="/">
-                                                                                Finetech
-                                                                            </SlimLink>
-                                                                        </li>
-                                                                        <li>
-                                                                            <SlimLink onClick={handleClick} to="/">
-                                                                                Health
-                                                                            </SlimLink>
-                                                                        </li>
-                                                                        <li>
-                                                                            <SlimLink onClick={handleClick} to="/">
-                                                                                Agriculture
-                                                                            </SlimLink>
-                                                                        </li>
-                                                                        <li>
-                                                                            <SlimLink onClick={handleClick} to="/">
-                                                                                Enterperise
-                                                                            </SlimLink>
-                                                                        </li>
-                                                                    </List>
-                                                                </Col>
-                                                            </Row>
-                                                        </Col>
-                                                        <Col lg={5} className='full-screen-right'>
-                                                            <div className='full-content'>
-                                                                <div className='d-block'>
-                                                                    <small>Got an idea?</small>
-                                                                    <h3>Let's craft <br /> brilliance together!</h3>
-                                                                    <Button className='full-btn mt-3'>Get In Touch</Button>
+                                            <NavLink to="/"><Button className='bw-header-btn' onClick={handleShow}>Book An Appointment</Button></NavLink>
+                                            <NavLink className="menuLabel" to="/" onClick={openNav}><Image src={hamburger} className="hamburger" /> Menu</NavLink>
+                                            {/* <Navigation clicked={click}>                                                
+                                            </Navigation> */}
+                                            <div id="myNav" class="overlay">
+                                                <a href="javascript:void(0)" class="closebtn" onClick={closeNav}>&times;</a>
+                                                <div class="overlay-content">
+                                                    <Container fluid className='p-0 overflow-hidden'>
+                                                        <Row className='align-items-center'>
+                                                            <Col lg={7} className='full-screen-left'>
+                                                                <Row className='align-items-center'>
+                                                                    <Col lg={4}>
+                                                                        <List>
+                                                                            <li>
+                                                                                <ItemLink onClick={handleClick} to="/">
+                                                                                    About
+                                                                                </ItemLink>
+                                                                            </li>
+                                                                            <li>
+                                                                                <ItemLink onClick={handleClick} to="/">
+                                                                                    Work
+                                                                                </ItemLink>
+                                                                            </li>
+                                                                            <li>
+                                                                                <ItemLink onClick={handleClick} to="/">
+                                                                                    Services
+                                                                                </ItemLink>
+                                                                            </li>
+                                                                            <li>
+                                                                                <ItemLink onClick={handleClick} to="/">
+                                                                                    Culture
+                                                                                </ItemLink>
+                                                                            </li>
+                                                                            <li>
+                                                                                <ItemLink onClick={handleClick} to="/">
+                                                                                    Careers
+                                                                                </ItemLink>
+                                                                            </li>
+                                                                        </List>
+                                                                    </Col>
+                                                                    <Col lg={4}>
+                                                                        <List>
+                                                                            <li>
+                                                                                <SlimLink onClick={handleClick} to="/">
+                                                                                    About
+                                                                                </SlimLink>
+                                                                            </li>
+                                                                            <li>
+                                                                                <SlimLink onClick={handleClick} to="/">
+                                                                                    Work
+                                                                                </SlimLink>
+                                                                            </li>
+                                                                            <li>
+                                                                                <SlimLink onClick={handleClick} to="/">
+                                                                                    Services
+                                                                                </SlimLink>
+                                                                            </li>
+                                                                            <li>
+                                                                                <SlimLink onClick={handleClick} to="/">
+                                                                                    Culture
+                                                                                </SlimLink>
+                                                                            </li>
+                                                                            <li>
+                                                                                <SlimLink onClick={handleClick} to="/">
+                                                                                    Careers
+                                                                                </SlimLink>
+                                                                            </li>
+                                                                            <li>
+                                                                                <SlimLink onClick={handleClick} to="/">
+                                                                                    Contact Us
+                                                                                </SlimLink>
+                                                                            </li>
+                                                                        </List>
+                                                                    </Col>
+                                                                    <Col lg={4}>
+                                                                        <List>
+                                                                            <li>
+                                                                                <SlimLink onClick={handleClick} to="/">
+                                                                                    Finetech
+                                                                                </SlimLink>
+                                                                            </li>
+                                                                            <li>
+                                                                                <SlimLink onClick={handleClick} to="/">
+                                                                                    Health
+                                                                                </SlimLink>
+                                                                            </li>
+                                                                            <li>
+                                                                                <SlimLink onClick={handleClick} to="/">
+                                                                                    Agriculture
+                                                                                </SlimLink>
+                                                                            </li>
+                                                                            <li>
+                                                                                <SlimLink onClick={handleClick} to="/">
+                                                                                    Enterperise
+                                                                                </SlimLink>
+                                                                            </li>
+                                                                        </List>
+                                                                    </Col>
+                                                                </Row>
+                                                            </Col>
+                                                            <Col lg={5} className='full-screen-right'>
+                                                                <div className='full-content'>
+                                                                    <div className='d-block'>
+                                                                        <small>Got an idea?</small>
+                                                                        <h3>Let's craft <br /> brilliance together!</h3>
+                                                                        <Button className='full-btn mt-3'>Get In Touch</Button>
+                                                                    </div>
+                                                                    <div className='full-view-logo'>
+                                                                        <Image src={bw} className='bw-logo' />
+                                                                    </div>
                                                                 </div>
-                                                                <div className='full-view-logo'>
-                                                                    <Image src={bw} className='bw-logo' />
-                                                                </div>
-                                                            </div>
-                                                        </Col>
-                                                    </Row>
-                                                </Container>
-                                            </Navigation>
+                                                            </Col>
+                                                        </Row>
+                                                    </Container>
+                                                </div>
+                                            </div>
                                         </Nav>
                                     </Navbar.Collapse>
                                 </Container>
-                            </Navbar>) : (<div className={scroll ? "d-flex fixed-head" : "d-flex mt-3 normal-head"}>
-                                <Image src={logo} className="logo" /> <MenuLabel htmlFor="navi-toggle" onClick={handleClick}>
-                                    <Icon clicked={click}>&nbsp;</Icon>
-                                </MenuLabel>
-                                <NavBackground clicked={click}>&nbsp;</NavBackground>
-                                <Navigation clicked={click}>
-                                    <Container fluid className='p-0'>
-                                        <Row className='align-items-center'>
-                                            <Col lg={7} className='full-screen-left'>
-                                                <Row className='align-items-center'>
-                                                    <Col lg={4}>
-                                                        <List>
-                                                            <li>
-                                                                <ItemLink onClick={handleClick} to="/">
-                                                                    About
-                                                                </ItemLink>
-                                                            </li>
-                                                            <li>
-                                                                <ItemLink onClick={handleClick} to="/">
-                                                                    Work
-                                                                </ItemLink>
-                                                            </li>
-                                                            <li>
-                                                                <ItemLink onClick={handleClick} to="/">
-                                                                    Services
-                                                                </ItemLink>
-                                                            </li>
-                                                            <li>
-                                                                <ItemLink onClick={handleClick} to="/">
-                                                                    Culture
-                                                                </ItemLink>
-                                                            </li>
-                                                            <li>
-                                                                <ItemLink onClick={handleClick} to="/">
-                                                                    Careers
-                                                                </ItemLink>
-                                                            </li>
-                                                        </List>
-                                                    </Col>
-                                                    <Col lg={4} xs={6}>
-                                                        <List>
-                                                            <li>
-                                                                <SlimLink onClick={handleClick} to="/">
-                                                                    About
-                                                                </SlimLink>
-                                                            </li>
-                                                            <li>
-                                                                <SlimLink onClick={handleClick} to="/">
-                                                                    Work
-                                                                </SlimLink>
-                                                            </li>
-                                                            <li>
-                                                                <SlimLink onClick={handleClick} to="/">
-                                                                    Services
-                                                                </SlimLink>
-                                                            </li>
-                                                            <li>
-                                                                <SlimLink onClick={handleClick} to="/">
-                                                                    Culture
-                                                                </SlimLink>
-                                                            </li>
-                                                            <li>
-                                                                <SlimLink onClick={handleClick} to="/">
-                                                                    Careers
-                                                                </SlimLink>
-                                                            </li>
-                                                            <li>
-                                                                <SlimLink onClick={handleClick} to="/">
-                                                                    Contact Us
-                                                                </SlimLink>
-                                                            </li>
-                                                        </List>
-                                                    </Col>
-                                                    <Col lg={4} xs={6}>
-                                                        <List>
-                                                            <li>
-                                                                <SlimLink onClick={handleClick} to="/">
-                                                                    Finetech
-                                                                </SlimLink>
-                                                            </li>
-                                                            <li>
-                                                                <SlimLink onClick={handleClick} to="/">
-                                                                    Health
-                                                                </SlimLink>
-                                                            </li>
-                                                            <li>
-                                                                <SlimLink onClick={handleClick} to="/">
-                                                                    Agriculture
-                                                                </SlimLink>
-                                                            </li>
-                                                            <li>
-                                                                <SlimLink onClick={handleClick} to="/">
-                                                                    Enterperise
-                                                                </SlimLink>
-                                                            </li>
-                                                        </List>
-                                                    </Col>
-                                                </Row>
-                                            </Col>
-                                            <Col lg={5} className='full-screen-right'>
-                                                <div className='full-content'>
-                                                    <div className='d-block'>
-                                                        <small>Got an idea?</small>
-                                                        <h3>Let's craft <br /> brilliance together!</h3>
-                                                        <Button className='full-btn mt-3'>Get In Touch</Button>
+                            </Navbar>) : (<div className={scroll ? "d-flex justify-content-between align-items-center fixed-head" : "d-flex mt-3 align-items-center justify-content-between normal-head"}>
+                                <Image src={logo} className="logo" /> <NavLink className="menuLabel text-white text-decoration-none text-end d-inline-block" to="/" onClick={openNav}><Image src={hamburger} className="hamburger" /> Menu</NavLink>
+                                <div id="myNav" class="overlay">
+                                    <a href="javascript:void(0)" class="closebtn" onClick={closeNav}>&times;</a>
+                                    <div class="overlay-content">
+                                        <Container fluid className='p-0 overflow-hidden'>
+                                            <Row className='align-items-center'>
+                                                <Col lg={7} className='full-screen-left'>
+                                                    <Row className='align-items-center'>
+                                                        <Col lg={4}>
+                                                            <List>
+                                                                <li>
+                                                                    <ItemLink onClick={handleClick} to="/">
+                                                                        About
+                                                                    </ItemLink>
+                                                                </li>
+                                                                <li>
+                                                                    <ItemLink onClick={handleClick} to="/">
+                                                                        Work
+                                                                    </ItemLink>
+                                                                </li>
+                                                                <li>
+                                                                    <ItemLink onClick={handleClick} to="/">
+                                                                        Services
+                                                                    </ItemLink>
+                                                                </li>
+                                                                <li>
+                                                                    <ItemLink onClick={handleClick} to="/">
+                                                                        Culture
+                                                                    </ItemLink>
+                                                                </li>
+                                                                <li>
+                                                                    <ItemLink onClick={handleClick} to="/">
+                                                                        Careers
+                                                                    </ItemLink>
+                                                                </li>
+                                                            </List>
+                                                        </Col>
+                                                        <Col lg={4}>
+                                                            <List>
+                                                                <li>
+                                                                    <SlimLink onClick={handleClick} to="/">
+                                                                        About
+                                                                    </SlimLink>
+                                                                </li>
+                                                                <li>
+                                                                    <SlimLink onClick={handleClick} to="/">
+                                                                        Work
+                                                                    </SlimLink>
+                                                                </li>
+                                                                <li>
+                                                                    <SlimLink onClick={handleClick} to="/">
+                                                                        Services
+                                                                    </SlimLink>
+                                                                </li>
+                                                                <li>
+                                                                    <SlimLink onClick={handleClick} to="/">
+                                                                        Culture
+                                                                    </SlimLink>
+                                                                </li>
+                                                                <li>
+                                                                    <SlimLink onClick={handleClick} to="/">
+                                                                        Careers
+                                                                    </SlimLink>
+                                                                </li>
+                                                                <li>
+                                                                    <SlimLink onClick={handleClick} to="/">
+                                                                        Contact Us
+                                                                    </SlimLink>
+                                                                </li>
+                                                            </List>
+                                                        </Col>
+                                                        <Col lg={4}>
+                                                            <List>
+                                                                <li>
+                                                                    <SlimLink onClick={handleClick} to="/">
+                                                                        Finetech
+                                                                    </SlimLink>
+                                                                </li>
+                                                                <li>
+                                                                    <SlimLink onClick={handleClick} to="/">
+                                                                        Health
+                                                                    </SlimLink>
+                                                                </li>
+                                                                <li>
+                                                                    <SlimLink onClick={handleClick} to="/">
+                                                                        Agriculture
+                                                                    </SlimLink>
+                                                                </li>
+                                                                <li>
+                                                                    <SlimLink onClick={handleClick} to="/">
+                                                                        Enterperise
+                                                                    </SlimLink>
+                                                                </li>
+                                                            </List>
+                                                        </Col>
+                                                    </Row>
+                                                </Col>
+                                                <Col lg={5} className='full-screen-right'>
+                                                    <div className='full-content'>
+                                                        <div className='d-block'>
+                                                            <small>Got an idea?</small>
+                                                            <h3>Let's craft <br /> brilliance together!</h3>
+                                                            <Button className='full-btn mt-3'>Get In Touch</Button>
+                                                        </div>
+                                                        <div className='full-view-logo'>
+                                                            <Image src={bw} className='bw-logo' />
+                                                        </div>
                                                     </div>
-                                                    <div className='full-view-logo'>
-                                                        <Image src={bw} className='bw-logo' />
-                                                    </div>
-                                                </div>
-                                            </Col>
-                                        </Row>
-                                    </Container>
-                                </Navigation>
+                                                </Col>
+                                            </Row>
+                                        </Container>
+                                    </div>
+                                </div>
                             </div>)}
                         </Col>
                     </Row>
                 </Container>
             </section>
+            <Modal show={show} size="lg" centered onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Book An Appointment</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Row className='pt-3 pb-3'>
+                        <Col lg={6}>
+                            <TextField id="outlined-basic" label="First Name" className='mb-3' fullWidth variant="outlined" />
+                        </Col>
+                        <Col lg={6}>
+                            <TextField id="outlined-basic" label="Last Name" className='mb-3' fullWidth variant="outlined" />
+                        </Col>
+                        <Col lg={6}>
+                            <TextField id="outlined-basic" label="Phone" className='mb-3' fullWidth variant="outlined" />
+                        </Col>
+                        <Col lg={6}>
+                            <TextField id="outlined-basic" label="Company Name" className='mb-3' fullWidth variant="outlined" />
+                        </Col>
+                        <Col lg={12}>
+                            <TextField id="outlined-basic" label="Your Message" multiline rows={3} className='mb-3' fullWidth variant="outlined" />
+                        </Col>
+                        <Col lg={12}>
+                            <Button className='bg-black text-white m-auto d-block mt-3 rounded-0' variant='contained'>Submit</Button>
+                        </Col>
+                    </Row>
+                </Modal.Body>
+            </Modal>
         </div>
     )
 }

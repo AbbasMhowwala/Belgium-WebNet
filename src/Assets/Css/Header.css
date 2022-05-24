@@ -231,3 +231,48 @@ nav.fixed-head.navbar.navbar-expand-lg.navbar-light {
         right: 10px;
     }
 }
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: #244404;
+    overflow-y: hidden;
+    transition: 0.9s;
+  }
+  
+  .overlay-content {
+       width: 100%;
+  }
+  
+  .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 1s;
+  }
+  
+  .overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+  }
+  .overlay .closebtn {
+    position: absolute;
+    top: -20px;
+    right: 0px;
+    font-size: 70px;
+    z-index: 99;
+}
+  
+  @media screen and (max-height: 450px) {
+    .overlay {overflow-y: auto;}
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+    }
+  }

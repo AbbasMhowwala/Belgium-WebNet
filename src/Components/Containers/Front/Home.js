@@ -43,6 +43,9 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Link } from 'react-router-dom'
 import Tilt from 'react-parallax-tilt';
+import Flip from 'react-reveal/Flip';
+import Typical from 'react-typical'
+
 const Home = () => {
     const myRef = useRef(null);
     const executeScroll = () => myRef.current.scrollIntoView();
@@ -50,7 +53,7 @@ const Home = () => {
     const [insta, setInsta] = useState(false)
     const projects = {
         className: "center",
-        infinite: false,        
+        infinite: false,
         slidesToShow: 1.7,
         speed: 500,
         rows: 1,
@@ -136,8 +139,8 @@ const Home = () => {
                 <Container className='bw-container'>
                     <Row className='align-items-center'>
                         <Col lg={6} sm={6} data-aos="fade-right">
-                            <div className='bw-hero-home'>
-                                <h1 className='bw-hero-heading'>Experience the <b className='bw-bold'>Fastest <br /> Websites </b> available In <br /> the market</h1>
+                            <div className='bw-hero-home'>                            
+                                <h1 className='bw-hero-heading'>Experience the available In <br /> the market <br /><Typical className='bw-bold' steps={['Fastest Websites', 1000, 'Smoothest Websites!', 500,]} loop={Infinity} wrapper="b" /> </h1>
                                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                                 <Button className='bw-hero-btn'>Click Here</Button>
                             </div>
@@ -346,8 +349,8 @@ const Home = () => {
                 <Container fluid>
                     <Row className='align-items-center'>
                         <Col lg={12}>
-                            <div className='agency-sec' data-aos="fade-up">
-                                <h1>We Are
+                            <div className='agency-sec'>
+                                <h1><Flip cascade>We Are
                                     <Tilt className='d-inline-block'><Image src={avtar} className='Avtar me-3' /></Tilt>
                                     <span className='text-decoration-underline text-dark'>Branding</span>
                                     <br /> <span className='text-dark'>Agency</span>
@@ -356,7 +359,7 @@ const Home = () => {
                                     <br /> <span className='text-dark'> design </span>
                                     <Tilt className='d-inline-block'><Image src={avtar2} className='Avtar me-3' /></Tilt> <span className='text-dark'>studio</span>
                                     <span className='arrowbg'> <Tilt className='d-inline-block'><Image src={arrow} className='arrow-bg ms-3' /></Tilt></span>
-                                </h1>
+                                </Flip> </h1>
                                 <Button className='theme-btn text-decoration-none m-auto d-flex align-items-center mt-5'>About Us <Image src={arrow} className='about-arrow ms-3' /></Button>
                             </div>
                         </Col>

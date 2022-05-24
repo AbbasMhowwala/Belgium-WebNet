@@ -301,6 +301,7 @@ img.services-image {
     bottom: 47px;
     z-index: -1;
 }
+
 .projects-section .slick-next {
     position: absolute !important;
     margin: 0px auto !important;
@@ -331,6 +332,7 @@ img.services-image {
     height: 44px !important;
     padding: 11px !important;
 }
+
 img.about-arrow {
     filter: brightness(0.2);
 }
@@ -607,6 +609,10 @@ form.newsletter-form button.btn.btn-primary::before {
     padding-left: 120px;
 }
 
+.react-reveal {
+    display: inline-block;
+}
+
 @media (min-width: 1150px) and (max-width: 1300px) {
     .bw-hero-home {
         padding: 0 50px;
@@ -825,10 +831,16 @@ form.newsletter-form button.btn.btn-primary::before {
 
     .copyright ul.d-flex {
         flex-direction: column;
+        align-items: flex-start !important;
+        margin-left: 10px;
     }
 
     .desktop-view {
         display: none;
+    }
+
+    .copyright ul.d-flex li {
+        margin-bottom: 30px;
     }
 }
 
